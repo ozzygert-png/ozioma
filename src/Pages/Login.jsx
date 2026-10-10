@@ -1,72 +1,154 @@
-import React, { useState } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import { Link } from 'react-router-dom';
-import './Login.css';
+import React from 'react';
+import { 
+  Box, 
+  Button, 
+  Checkbox, 
+  CssBaseline, 
+  FormControlLabel, 
+  Grid, 
+  Link, 
+  TextField, 
+  Typography 
+} from '@mui/material';
 
-const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (email && password) {
-      alert('Login successful!');
-    } else {
-      alert('Please fill in all fields');
-    }
-  };
-
+export default function SharpLoginDesign() {
   return (
-    <div>
-      <Header />
+    <Grid container component="main" sx={{ height: '100vh' }}>
+      <CssBaseline />
+      
+      {/* Left Column: Visual branding area */}
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage: 'url(https://unsplash.com)',
+          backgroundRepeat: 'no-repeat',
+          backgroundColor: '#111',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          p: 6,
+          color: '#fff',
+        }}
+      >
+        <Typography variant="h3" component="h1" sx={{ fontWeight: 900, letterSpacing: '-0.05em', mb: 1 }}>
+          THE ARCHITECT.
+        </Typography>
+        <Typography variant="body1" sx={{ color: 'rgba(255,255,255,0.7)', letterSpacing: '0.05em' }}>
+          ©️ 2026 INTERNAL NETWORK SYSTEM.
+        </Typography>
+      </Grid>
 
-      {/* LOGIN SECTION */}
-      <div className="login-page">
-        <div className="login-box">
-          <h2>Login</h2>
-          <p>Enter your details to sign in to SmileJeans</p>
+      {/* Right Column: Sharp Login Form */}
+      <Grid 
+        item 
+        xs={12} 
+        sm={8} 
+        md={5} 
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          justifyContent: 'center', 
+          px: { xs: 4, md: 10 },
+          backgroundColor: '#fff'
+        }}
+      >
+        <Box sx={{ maxWidth: 400, width: '100%', mx: 'auto' }}>
+          <Typography variant="h4" component="h2" sx={{ fontWeight: 800, mb: 1, letterSpacing: '-0.03em' }}>
+            SIGN IN
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 4 }}>
+            Please enter your credentials to access your terminal.
+          </Typography>
 
-          <form onSubmit={handleLogin}>
-            <div className="input-box">
-              <label>Email Address</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+          <Box component="form" noValidate>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              label="EMAIL ADDRESS"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              InputProps={{ sx: { borderRadius: 0 } }}
+              InputLabelProps={{ sx: { letterSpacing: '0.1em', fontSize: '0.75rem' } }}
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': { borderColor: '#000', borderWidth: '1px' },
+                  '&:hover fieldset': { borderColor: '#000', borderWidth: '2px' },
+                  '&.Mui-focused fieldset': { borderColor: '#000', borderWidth: '2px' },
+                }
+              }}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              label="PASSWORD"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              InputProps={{ sx: { borderRadius: 0 } }}
+              InputLabelProps={{ sx: { letterSpacing: '0.1em', fontSize: '0.75rem' } }}
+              variant="outlined"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& fieldset': { borderColor: '#000', borderWidth: '1px' },
+                  '&:hover fieldset': { borderColor: '#000', borderWidth: '2px' },
+                  '&.Mui-focused fieldset': { borderColor: '#000', borderWidth: '2px' },
+                }
+              }}
+            />
+            
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mt: 2, mb: 3 }}>
+              <FormControlLabel
+                control={<Checkbox value="remember" color="default" sx={{ '& .MuiSvgIcon-root': { borderRadius: 0 } }} />}
+                label={<Typography variant="body2" sx={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>REMEMBER ME</Typography>}
               />
-            </div>
+              <Link href="#" variant="body2" color="inherit" sx={{ fontSize: '0.75rem', underline: 'always', letterSpacing: '0.05em' }}>
+                FORGOT PASSWORD?
+              </Link>
+            </Box>
 
-            <div className="input-box">
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="Enter your password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 1,
+                mb: 3,
+                py: 1.5,
+                backgroundColor: '#000',
+                color: '#fff',
+                borderRadius: 0,
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                boxShadow: 'none',
+                '&:hover': {
+                  backgroundColor: '#222',
+                  boxShadow: 'none',
+                },
+              }}
+            >
+              ENTER SYSTEM
+            </Button>
 
-            <button type="submit" className="login-btn">
-              Login
-            </button>
-          </form>
-
-          <div className="extra-links">
-            <p>
-              Don't have an account? <Link to="/register">Register here</Link>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <Footer />
-    </div>
+            <Typography variant="body2" align="center" color="text.secondary" sx={{ fontSize: '0.75rem' }}>
+              {'DON\'T HAVE AN ACCOUNT? '}
+              <Link href="#" color="inherit" sx={{ fontWeight: 700 }}>
+                <Link to="/Register">REGISTER</Link>
+              </Link>
+            </Typography>
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
-};
-
-export default Login;
-
+}

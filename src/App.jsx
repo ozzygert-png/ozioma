@@ -5,6 +5,7 @@ import Aboutus from "./Pages/Aboutus";
 import Services from "./Pages/Services";
 import ContactUs from "./Pages/ContactUs";
 import Login from "./Pages/Login";
+import SharpRegisterDesign from "./Pages/Register";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/Register" element={<SharpRegisterDesign />} />
       </Routes>
     </div>
   );

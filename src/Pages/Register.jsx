@@ -1,115 +1,240 @@
-import React, { useState } from 'react';
-import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
-import { Link } from 'react-router-dom';
-import './Register.css';
+import React, { useState } from "react";
+import {
+  Box,
+  Button,
+  CssBaseline,
+  Grid,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 
-const Register = () => {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+export default function SharpRegisterDesign() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    address: "",
+  });
 
-  const handleRegister = (e) => {
-    e.preventDefault();
+  const handleChange = (event) => {
+    const { name, value } = event.target;
 
-    if (!fullName || !email || !phone || !password || !confirmPassword) {
-      alert('Please fill in all fields');
-      return;
-    }
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
 
-    if (password !== confirmPassword) {
-      alert('Passwords do not match!');
-      return;
-    }
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-    alert('Registration successful! You can now login.');
+    console.log("Registration Data:", formData);
+
+    alert("Registration form submitted!");
   };
 
   return (
-    <div>
-      <Header />
+    <Grid container component="main" sx={{ minHeight: "100vh" }}>
+      <CssBaseline />
 
-      {/* REGISTER SECTION */}
-      <div className="register-page">
-        <div className="register-box">
-          <h2>Create an Account</h2>
-          <p>Join SmileJeans Exclusive Store today</p>
+      {/* LEFT SIDE */}
+      <Grid
+        item
+        xs={false}
+        sm={4}
+        md={7}
+        sx={{
+          backgroundImage:
+            "url(https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80)",
+          backgroundRepeat: "no-repeat",
+          backgroundColor: "#111",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "flex-end",
+          p: 6,
+          color: "#fff",
+        }}
+      >
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{
+            fontWeight: 900,
+            letterSpacing: "-0.05em",
+            mb: 1,
+          }}
+        >
+          THE ARCHITECT.
+        </Typography>
 
-          <form onSubmit={handleRegister}>
-            <div className="input-box">
-              <label>Full Name</label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-            </div>
+        <Typography
+          variant="body1"
+          sx={{
+            color: "rgba(255,255,255,0.7)",
+            letterSpacing: "0.05em",
+          }}
+        >
+          ©️ 2026 INTERNAL NETWORK SYSTEM.
+        </Typography>
+      </Grid>
 
-            <div className="input-box">
-              <label>Email Address</label>
-              <input
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
+      {/* RIGHT SIDE */}
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          px: { xs: 4, md: 10 },
+          py: 5,
+          backgroundColor: "#fff",
+        }}
+      >
+        <Box sx={{ maxWidth: 400, width: "100%", mx: "auto" }}>
+          <Typography
+            variant="h4"
+            component="h2"
+            sx={{
+              fontWeight: 800,
+              mb: 1,
+              letterSpacing: "-0.03em",
+            }}
+          >
+            CREATE ACCOUNT
+          </Typography>
 
-            <div className="input-box">
-              <label>Phone Number</label>
-              <input
-                type="tel"
-                placeholder="Enter your phone number"
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                required
-              />
-            </div>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ mb: 4 }}
+          >
+            Register to access your student account.
+          </Typography>
 
-            <div className="input-box">
-              <label>Password</label>
-              <input
-                type="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
+          <Box component="form" onSubmit={handleSubmit} noValidate>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="FIRST NAME"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
 
-            <div className="input-box">
-              <label>Confirm Password</label>
-              <input
-                type="password"
-                placeholder="Confirm password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
-                required
-              />
-            </div>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              label="LAST NAME"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
 
-            <button type="submit" className="register-btn">
-              Register
-            </button>
-          </form>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              type="email"
+              label="EMAIL ADDRESS"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
 
-          <div className="extra-links">
-            <p>
-              Already have an account? <Link to="/login">Login here</Link>
-            </p>
-          </div>
-        </div>
-      </div>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              type="password"
+              label="PASSWORD"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
 
-      <Footer />
-    </div>
+            <TextField
+              margin="normal"
+              fullWidth
+              label="PHONE NUMBER"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
+
+            <TextField
+              margin="normal"
+              fullWidth
+              label="ADDRESS"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              InputProps={{
+                sx: { borderRadius: 0 },
+              }}
+            />
+
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{
+                mt: 3,
+                mb: 3,
+                py: 1.5,
+                backgroundColor: "#000",
+                color: "#fff",
+                borderRadius: 0,
+                fontWeight: 700,
+                letterSpacing: "0.1em",
+                boxShadow: "none",
+                "&:hover": {
+                  backgroundColor: "#222",
+                  boxShadow: "none",
+                },
+              }}
+            >
+              CREATE ACCOUNT
+            </Button>
+
+            <Typography
+              variant="body2"
+              align="center"
+              color="text.secondary"
+              sx={{ fontSize: "0.75rem" }}
+            >
+              ALREADY HAVE AN ACCOUNT?{" "}
+              <Link href="/login" color="inherit" sx={{ fontWeight: 700 }}>
+                SIGN IN
+              </Link>
+            </Typography>
+          </Box>
+        </Box>
+      </Grid>
+    </Grid>
   );
-};
-
-export default Register;
-
+}
