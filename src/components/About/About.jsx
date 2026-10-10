@@ -1,6 +1,6 @@
 import React from 'react'
 import "./About.css";
-
+import pix from '../../assets/jeanstore.jpg';
 const About  = () => {
   return (
     <div>
@@ -10,7 +10,7 @@ const About  = () => {
           <h1>About Smilejeans Exclusive</h1>
           <h3>We sell anything Jeans</h3>
           <p>
-            {" "}
+          
             Discover SmileJeans Exclusive Store, <br /> your trusted destination
             for premium <br />
             jeans wear, offering stylish, comfortable,
@@ -30,7 +30,7 @@ const About  = () => {
         </div>
 
         <div className="image-container">
-       <img src="./jeanstore.jpg" alt="image" />
+       <img src={pix} alt="image" />
          
         </div>
 

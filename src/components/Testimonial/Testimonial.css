@@ -14,10 +14,8 @@
     padding: 15px;
     letter-spacing: 2px;
 }
-#testimonials h3{
-    font-size: 40px;
-    margin-bottom: 45px;
-}
+
+
 /*FLEXBOX*/
 .testimonials-container{
     display: flex;
