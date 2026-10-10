@@ -1,0 +1,92 @@
+/* REGISTER PAGE */
+.register-page {
+  padding: 60px 20px;
+  background-color: #f5f5f5;
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-box {
+  background-color: white;
+  width: 100%;
+  max-width: 450px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.register-box h2 {
+  color: #1e3a8a;
+  margin-bottom: 10px;
+  font-size: 26px;
+}
+
+.register-box p {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.input-box {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-box label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.input-box input:focus {
+  border-color: green;
+}
+
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.register-btn:hover {
+  background-color: darkgreen;
+}
+
+.extra-links {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.extra-links a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.extra-links a:hover {
+  text-decoration: underline;
+}
+

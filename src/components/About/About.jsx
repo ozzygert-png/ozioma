@@ -1,7 +1,6 @@
 import React from 'react'
 import "./About.css";
 
-
 const About  = () => {
   return (
     <div>
@@ -41,5 +40,3 @@ const About  = () => {
 }
 
 export default About 
-
-    

@@ -1,5 +1,5 @@
-
-import"./Hero.css";
+import { Link } from "react-router-dom";
+import "./Hero.css";
 
 const Hero = () => {
   return (
@@ -15,13 +15,13 @@ const Hero = () => {
             </p>
 
             <div className="button-box">s
-              <button>GET STARTED</button>
+              <Link to="/register">GET STARTED</Link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

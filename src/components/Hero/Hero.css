@@ -27,11 +27,14 @@ color: white;
 margin-top: 20px;
 margin-bottom: 20px;
 }
-.text .button-box button{
+.text .button-box button,
+.text .button-box a {
     color: antiquewhite;
     background-color: green;
     border-radius: 10vh; 
     padding: 10px;
+    text-decoration: none;
+    display: inline-block;
 }
 /* HERO RESPONSIVENESS */
 @media(max-width: 768px){
