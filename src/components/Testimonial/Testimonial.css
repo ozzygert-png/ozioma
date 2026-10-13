@@ -1,19 +1,8 @@
-/* ==========================================
-   PASTE YOUR PREVIOUS SECTION CODE HERE 
-   Ensure it ends cleanly like this:
-   ========================================== */
-.previous-class {
-    /* your styles */
-} /* <-- This closes your last previous block cleanly */
-
-
-/* ==========================================
-   CORRECTED TESTIMONY & RESPONSIVE SECTIONS
-   ========================================== */
+/* } 💡 THIS ACCIDENTALLY CLOSES THE BROKEN CODE BLOCK SITTING ABOVE YOUR TESTIMONIES */
 
 /*TESTIMONY*/
 #testimonials {
-    padding: 15px 10% 10px 10%; /* Combines duplicate entries safely */
+    padding: 15px 10% 10px 10%; 
     background-color: #f5f5f5;
     text-align: center;
     color: blue;
@@ -21,7 +10,7 @@
 }
 #testimonials h2 {
     color: red;
-    font-size: 40px; 
+    font-size: 40px;
     margin-bottom: 45px;
 }
 
@@ -55,8 +44,15 @@
 
 /* TESTIMONIAL RESPONSIVENESS */
 @media (max-width: 768px) {
-  /* Fixed class name from .testimonial-container to .testimonials-container to match your HTML */
-  .testimonials-container { 
+  .testimonials {
+    padding: 60px 6%;
+  }
+  .testimonials h2 {
+    font-size: 32px;
+    margin-bottom: 35px;
+  }
+  /* Fixed class name from .testimonial-container to .testimonials-container */
+  .testimonials-container {
     flex-direction: column;
     gap: 25px;
   }
@@ -70,7 +66,18 @@
 }
 
 @media (max-width: 480px) {
-  .testimonials-container { 
+  .testimonials {
+    padding: 50px 5%;
+  }
+  .testimonials h1 {
+    font-size: 14px;
+  }
+  .testimonials h2 {
+    font-size: 27px;
+    margin-bottom: 30px;
+  }
+  /* Fixed class name from .testimonial-container to .testimonials-container */
+  .testimonials-container {
     gap: 20px;
   }
   .testimonials-container .card {
